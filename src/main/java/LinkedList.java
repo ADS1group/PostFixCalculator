@@ -18,11 +18,12 @@ public class LinkedList<T> implements List<T> {
 
     @Override
     public void addToFront(T data) {
-        Node<T> newNode = new Node<T>(data);
-        newNode.setNext(head);
-        head = newNode;
-        size++;
-
+        if(data!=null){
+            var newNode = new Node<>(data);
+            newNode.setNext(head);
+            head = newNode;
+            size++;
+        }
     }
 
 
@@ -35,8 +36,8 @@ public class LinkedList<T> implements List<T> {
         Node<T> temp = head;
         // Move the head pointer to the next node
         head = head.getNext();
-        // Set the stored reference to null
-        temp.setData(null);
+        // Set the next link reference to null
+        temp.setNext(null);
         size--;
         return temp.getData();
 
