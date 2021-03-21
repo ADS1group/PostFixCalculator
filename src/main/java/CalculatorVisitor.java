@@ -1,6 +1,8 @@
 import Exceptions.EmptyListException;
 import Exceptions.MalformedExpressionException;
 
+import java.util.EmptyStackException;
+
 public class CalculatorVisitor implements Visitor, Calculator {
 
     private LinkedStack<Token> tokenStack;
@@ -22,7 +24,7 @@ public class CalculatorVisitor implements Visitor, Calculator {
         try {
             o1 = tokenStack.pop();
             o2 = tokenStack.pop();
-        } catch (EmptyListException e) {
+        } catch (EmptyStackException e) {
             throw new MalformedExpressionException("Malformed Expression Exception");
         }
         if (!(o1 instanceof Operand) || !(o2 instanceof Operand)) {
@@ -59,7 +61,7 @@ public class CalculatorVisitor implements Visitor, Calculator {
          {
             try {
                 return ((Operand) tokenStack.pop()).getValue();
-            } catch (EmptyListException e) {
+            } catch (EmptyStackException e) {
                 throw new MalformedExpressionException("Malformed Expression Exception");
             }
         }
