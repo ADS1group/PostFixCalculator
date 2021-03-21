@@ -56,7 +56,7 @@ class LinkedListTest {
     }
 
     @Test
-    void removeFirstException() {
+    void removeFirstEmptyListException() {
         assertThrows(EmptyListException.class, ()->{
             this.linkedList.removeFirst();
         });
