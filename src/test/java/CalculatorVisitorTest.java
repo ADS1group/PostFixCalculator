@@ -14,7 +14,7 @@ class CalculatorVisitorTest {
     }
 
     @Test
-    void getResultException() {
+    void getResultMalformedExpressionException() {
         assertThrows(MalformedExpressionException.class,()->{
             calculator.getResult();
         });

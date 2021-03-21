@@ -39,7 +39,7 @@ class ClientTest {
         assertEquals(client.evaluateExpression(tokenList2),250);
     }
     @Test
-    void evaluateExpressionTestException(){
+    void evaluateExpressionTestRuntimeException(){
         var tokenList2=  new ArrayList<>(Arrays.asList(
                 new Operand(1),
                 new Operand(2),

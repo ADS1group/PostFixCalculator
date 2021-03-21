@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Client {
-    private CalculatorVisitor calculatorVisitor=new CalculatorVisitor();
+    private CalculatorVisitor calculatorVisitor = new CalculatorVisitor();
 
     public static void main(String[] args) {
         Client client = new Client();
-var tokenList=new ArrayList<>(Arrays.asList(
+        var tokenList = new ArrayList<>(Arrays.asList(
                 new Operand(15),
                 new Operand(5),
                 new Operator(Operation.PLUS),
@@ -18,7 +18,7 @@ var tokenList=new ArrayList<>(Arrays.asList(
 
         System.out.println("5 + 2 - 100 = " + client.evaluateExpression(tokenList));
 
-        var tokenList2=  new ArrayList<>(Arrays.asList(
+        var tokenList2 = new ArrayList<>(Arrays.asList(
                 new Operand(50),
                 new Operand(2),
                 new Operator(Operation.DIVIDE),
@@ -28,17 +28,15 @@ var tokenList=new ArrayList<>(Arrays.asList(
         System.out.println("50 / 2 * 10 = " + client.evaluateExpression(tokenList2));
 
 
-
-
     }
 
     public int evaluateExpression(ArrayList<Token> tokenList) {
-        for (Token token: tokenList) {
+        for (Token token : tokenList) {
             token.accept(calculatorVisitor);
         }
-        try{
+        try {
             return calculatorVisitor.getResult();
-        }catch (MalformedExpressionException e){
+        } catch (MalformedExpressionException e) {
             throw new RuntimeException("Malformed Expression Exception");
         }
     }

@@ -41,7 +41,7 @@ class LinkedStackTest {
     }
 
     @Test
-    void popException() {
+    void popEmptyStackException() {
         assertThrows(EmptyStackException.class,()->{
             this.linkedStack.pop();
         });
